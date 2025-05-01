@@ -1,0 +1,85 @@
+<?php
+    session_start();
+?>
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="utf-8"/>
+        <link rel="stylesheet" href="css\homePage.css"/>
+        <script src="js/mechanism.js" defer></script>
+        <script
+            src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs"
+            type="module"
+            ></script>
+        <title>Reports Page</title>
+    </head>
+    <body>
+        <div id="navigation">
+            <div id="nav-left">
+                <img id="icon" src="images/icons/spaceship.png"/>
+                <h1>STARCADE</h1>
+            </div>
+            <div id="nav-right">
+                <div id="nav-choices">
+                    <a href="Home.php">HOME</a>
+                    <a href="#about">ABOUT</a>
+                    <a href="#contact">CONTACT US</a>
+
+                    <?php if (isset($_SESSION['username'])): ?>
+                        <div class="dropdown-menu">
+                            <button class="dropdown-button"><?php echo htmlspecialchars($_SESSION['username']); ?> ▼</button>
+                            <div class="dropdown-content">
+                                <a href="profile.php">View Profile</a>
+                                <a href="php/logout.php">Logout</a>
+                            </div>
+                        </div>                    
+                    <?php else: ?>
+                        <a href="LoginForm.php">LOGIN</a>
+                    <?php endif; ?>        
+                </div>   
+                <div> 
+                    <form class="search-bar">                                   <!--HANDLE IN JAVASCRIPT-->
+                        <input type="search" placeholder="Search" required>
+                        <button type="submit">
+                            <img src="images/icons/search.png" width="16px" height="16px" alt="search"/>
+                        </button>
+                    </form>
+                </div>    
+            </div>
+        </div>
+
+            <div id = 'CTA'>
+                <p>Oh no you caught us again this page is also still under construction again please be patient we are trying our best!</p>
+            </div> 
+        </div>
+        <div id="sections">
+            <div id="about">
+                <h4>ABOUT</h4>
+                <p class="aboutText">this project was made by 4 members for the assessment 
+                    of the Web Programming subject, as you can see this is supposed to be the reports page very nerdy stuff :3
+                </p>
+            </div>
+            <div id="contact">
+                <h4>CONTACT US</h4>
+                <div class="contact-icons">
+                    <a href="tel:+1234567890">
+                        <img src="images/icons/phone.png" alt="Phone" class="icon" />
+                    </a>
+                    <a href="mailto:dohaymanesmail@gmail.com">
+                        <img src="images/icons/mail.png" alt="Email" class="icon" />
+                    </a>
+                    <a href="https://www.facebook.com" target="_blank">
+                        <img src="images/icons/facebook.png" alt="Facebook" class="icon" />
+                    </a>
+                    <a href="https://www.twitter.com" target="_blank">
+                        <img src="images/icons/x.png" alt="Twitter" class="icon" />
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div id="up">
+            <button id="backToTop"><img src="images/icons/up-arrow.png" width="16px" height="16px"/></button>  <!--HANDLE IN JAVASCRIPT-->
+        </div>
+    </body>
+</html>
